@@ -26,8 +26,8 @@ This project uses a small practice dataset (~21 customers) for learning purposes
 How to Run
 Clone this repo
 Install dependencies: pip install pandas numpy matplotlib seaborn
-Open churm_analysis.ipynb in Jupyter
+Open churn_analysis.ipynb in Jupyter
 Run all cells top to bottom
 Files
-churm_analysis.ipynb — main analysis notebook
+churn_analysis.ipynb — main analysis notebook
 README.md — this file
