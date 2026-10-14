@@ -1,33 +1,43 @@
-Customer Churn Analysis
+# Customer Churn Analysis
 
-A churn analysis project exploring subscriber behavior across plan type, contract type, state, and support interactions, built to identify potential churn drivers and key business KPIs.
+A churn analysis project exploring subscriber behavior across plan type,
+subscription channel, state, and support interactions, built to identify
+potential churn drivers and key business KPIs.
 
-Overview
+## Overview
+Customer, subscription, and support data are read from a SQLite database
+with SQL, then cleaned and merged in Pandas into one analysis-ready
+dataset (20+ fields).
 
-This project integrates customer, subscription, and support data from a relational database (PostgreSQL/SQLite) into a unified dataset for analysis. It focuses on identifying patterns in customer churn, quantifying business metrics like ARPU and revenue at risk, and visualizing findings for decision-making.
+## Tools
+- Python (Pandas, NumPy, Matplotlib, Seaborn)
+- SQL, SQLite
+- Jupyter Notebook
 
-Tools & Libraries
-Python (Pandas, NumPy)
-SQL (PostgreSQL, SQLite)
-Matplotlib & Seaborn for visualization
-Jupyter Notebook
-What This Project Does
-Merges customer, subscription, and support tables using SQL joins and Pandas, consolidating 20+ fields
-Cleans data: handles missing values, standardizes inconsistent categorical labels, encodes categorical variables
-Engineers features: churn flag, customer tenure, and churn-risk segments (Low/Medium/High)
-Analyzes churn across plan type, subscription type, state, and tenure using pivot-style aggregations
-Investigates support escalations as a potential churn indicator (correlation observed: 0.77, in this dataset)
-Calculates KPIs: churn rate, ARPU (~18.85), revenue at risk, average tenure (~1,548 days)
-Visualizes findings with correlation heatmaps and segment/trend charts
-Note on Dataset Scale
+## What this project does
+- Reads three tables with SQL queries and merges them with Pandas
+- Cleans data: fixes missing values, standardizes labels, corrects data types
+- Engineers features: churn flag, customer tenure, complaint count,
+  churn-risk segments (low / med / high)
+- Analyzes churn by plan type, subscription channel, state, and month
+- Investigates support escalations as a churn indicator
+  (correlation 0.77 in this dataset)
+- Calculates KPIs: churn rate, ARPU (~18.85), revenue at risk,
+  average tenure (~1,548 days at original run)
+- Visualizes findings with bar charts, a trend chart, and a correlation heatmap
 
-This project uses a small practice dataset (~21 customers) for learning purposes. Correlation and segment findings are illustrative of the analytical approach rather than statistically robust conclusions — the same pipeline would scale to larger, real-world datasets.
+## Note on dataset scale
+This is a small practice dataset (~21 customers, 6 churned). Findings
+illustrate the analytical approach and are not statistically robust.
+The same pipeline would scale to larger datasets.
 
-How to Run
-Clone this repo
-Install dependencies: pip install pandas numpy matplotlib seaborn
-Open churn_analysis.ipynb in Jupyter
-Run all cells top to bottom
-Files
-churn_analysis.ipynb — main analysis notebook
-README.md — this file
+## How to run
+1. Clone this repo
+2. Install dependencies: `pip install pandas numpy matplotlib seaborn`
+3. Keep `customer_churn.db` in the same folder as the notebook
+4. Open `churn_analysis.ipynb` in Jupyter and run all cells
+
+
+- `customer_churn.db`: SQLite source data
+- `exported_churn_data.csv`: merged dataset created by the notebook
+- `README.md`: this file
